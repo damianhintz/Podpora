@@ -1,5 +1,4 @@
 #include "arrowBuilder.h"
-#include "photoReader.h"
 
 void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP) {
     if (thisP == NULL) return;
@@ -47,39 +46,17 @@ void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* star
     photoArrow_normalizeName(arrowP);
 }
 
-void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP) {
+void arrowBuilder_createArrows(LpArrowBuilder thisP, LpFenceReader readerP) {
     int i = 0;
-    //mdlLogger_info("arrowBuilder: building arrows from photos");
-    for (i = 0; i < photosP->filesCount; i++) {
+    
+    for (i = 0; i < 0; i++) {
         PhotoPoint* startP;
         DPoint3d startPoint, endPoint;
         char photoName[MAX_PHOTO_NAME];
-        int photoLength = photoReader_parsePhotoName(photosP, i, photoName);
+        int photoLength;
+        
         thisP->allCount++;
-        if (photoLength == 0) {
-            char msg[256];
-            sprintf(msg, "arrowBuilder: invalid arrow photo name %s", photosP->files[i].name);
-            mdlLogger_err(msg);
-            thisP->missingArrows++;
-            continue;
-        }
-        //searching for photo
-        //mdlLogger_info(photoName);
-        startP = fenceReader_searchStartName(readerP, photoName, &startPoint);
-        if (startP == NULL) {
-            char msg[256];
-            sprintf(msg, "arrowBuilder: missing arrow start point %s", photoName);
-            mdlLogger_err(msg);
-            thisP->missingArrows++;
-            continue; //no start point
-        }
-        if (!fenceReader_searchEndName(readerP, photoName, &endPoint)) {
-            char msg[256];
-            sprintf(msg, "arrowBuilder: missing arrow end point %s", photoName);
-            mdlLogger_err(msg);
-            thisP->missingArrows++;
-            continue; //no end point
-        }
+        
         startP->used = TRUE;
         //build arrow from points
         arrowBuilder_addArrow(thisP, photoName, &startPoint, &endPoint);

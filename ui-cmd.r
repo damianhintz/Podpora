@@ -5,35 +5,27 @@
 #define CT_MAIN 1
 #define CT_MENU 10
 #define CT_PHOTO 101
-#define CT_REF 102
+#define CT_CONFIG 102
 #define CT_ARROW 103
 #define CT_LOAD 104
 
 Table CT_MAIN =
 {
-    {1, CT_MENU, INHERIT, NONE, "photoarrow"},
+    {1, CT_MENU, INHERIT, NONE, "podpora"},
 };
 
 Table CT_MENU =
 {
     {0, CT_NONE, INHERIT, NONE, "start"},
-    {1, CT_PHOTO, INHERIT, NONE, "photo"},
-    {2, CT_REF, INHERIT, NONE, "ref"},
+    {2, CT_CONFIG, INHERIT, NONE, "config"},
     {3, CT_ARROW, INHERIT, NONE, "arrow"},
     {4, CT_LOAD, INHERIT, NONE, "load"},
 };
 
-Table CT_PHOTO =
+Table CT_CONFIG =
 {
-    {1, CT_NONE, INHERIT, NONE, "subdir"},
-    {2, CT_NONE, INHERIT, NONE, "ext"},
-};
-
-Table CT_REF =
-{
-    {1, CT_NONE, INHERIT, NONE, "fence"},
-    {2, CT_NONE, INHERIT, NONE, "startLevel"},
-    {3, CT_NONE, INHERIT, NONE, "endLevel"},
+    {1, CT_NONE, INHERIT, NONE, "pomierzoneLevel"},
+    {2, CT_NONE, INHERIT, NONE, "pierwotneLevel"},
 };
 
 Table CT_ARROW =
@@ -50,5 +42,5 @@ Table CT_ARROW =
 Table CT_LOAD =
 {
     {1, CT_NONE, INHERIT, NONE, "config"},
-    {2, CT_NONE, INHERIT, NONE, "arrows"},
+    {2, CT_NONE, INHERIT, NONE, "pomierzone"},
 };

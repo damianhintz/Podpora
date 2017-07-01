@@ -45,13 +45,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/core/mdlFence.o \
 	${OBJECTDIR}/core/mdlGeom.o \
 	${OBJECTDIR}/core/mdlLine.o \
-	${OBJECTDIR}/core/mdlScan.o \
 	${OBJECTDIR}/core/mdlSelect.o \
 	${OBJECTDIR}/core/mdlText.o \
 	${OBJECTDIR}/core/photoArrow.o \
+	${OBJECTDIR}/core/podporaSkaner.o \
 	${OBJECTDIR}/fenceReader.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/photoReader.o \
 	${OBJECTDIR}/ui-cmd.o \
 	${OBJECTDIR}/ui.o \
 	${OBJECTDIR}/vectorMath.o
@@ -131,11 +130,6 @@ ${OBJECTDIR}/core/mdlLine.o: core/mdlLine.mc
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlLine.o core/mdlLine.mc
 
-${OBJECTDIR}/core/mdlScan.o: core/mdlScan.mc
-	${MKDIR} -p ${OBJECTDIR}/core
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlScan.o core/mdlScan.mc
-
 ${OBJECTDIR}/core/mdlSelect.o: core/mdlSelect.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
@@ -151,6 +145,11 @@ ${OBJECTDIR}/core/photoArrow.o: core/photoArrow.mc
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/photoArrow.o core/photoArrow.mc
 
+${OBJECTDIR}/core/podporaSkaner.o: core/podporaSkaner.mc
+	${MKDIR} -p ${OBJECTDIR}/core
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/podporaSkaner.o core/podporaSkaner.mc
+
 ${OBJECTDIR}/fenceReader.o: fenceReader.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -160,11 +159,6 @@ ${OBJECTDIR}/main.o: main.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.mc
-
-${OBJECTDIR}/photoReader.o: photoReader.mc
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/photoReader.o photoReader.mc
 
 ${OBJECTDIR}/ui-cmd.o: ui-cmd.mc
 	${MKDIR} -p ${OBJECTDIR}

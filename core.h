@@ -3,7 +3,7 @@
 #include "core\mdlElement.h"
 #include "core\mdlGeom.h"
 #include "core\mdlFence.h"
-#include "core\mdlScan.h"
+#include "core\podporaSkaner.h"
 #include "core\mdlSelect.h"
 #include "core\mdlText.h"
 #include "core\mdlLine.h"

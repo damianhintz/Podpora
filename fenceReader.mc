@@ -30,9 +30,9 @@ void fenceReader_summary(LpFenceReader thisP) {
     mdlLogger_info(msg);
     sprintf(msg, "ref elements: %d count", thisP->refCount);
     mdlLogger_info(msg);
-    sprintf(msg, "start points: %d count (level %d)", thisP->startPointsCount, _refStartLevel);
+    sprintf(msg, "start points: %d count (level %d)", thisP->startPointsCount, _pierwotneLevel);
     mdlLogger_info(msg);
-    sprintf(msg, "end points: %d count (level %d)", thisP->endPointsCount, _refEndLevel);
+    sprintf(msg, "end points: %d count (level %d)", thisP->endPointsCount, _pomierzoneLevel);
     mdlLogger_info(msg);
 }
 
@@ -107,7 +107,7 @@ int fence_parseRef(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum
     if (!element_isText(type)) return FALSE; //skip elements other than texts
     if (!mdlText_readText(edP, text, &point)) return FALSE;
     if (strlen(text) > MAX_PHOTO_NAME) return FALSE; //photo name is too big
-    if (level == _refStartLevel) { //first point of the photo
+    if (level == _pierwotneLevel) { //first point of the photo
         PhotoPoint* photoP = NULL;
         int i = thisP->startPointsCount;
         if (i >= thisP->maxCount) return FALSE;
@@ -116,7 +116,7 @@ int fence_parseRef(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum
         photoP->point = point;
         thisP->startPointsCount++;
     }
-    if (level == _refEndLevel) { //second point of the photo
+    if (level == _pomierzoneLevel) { //second point of the photo
         PhotoPoint* photoP = NULL;
         int i = thisP->endPointsCount;
         if (i >= thisP->maxCount) return FALSE;

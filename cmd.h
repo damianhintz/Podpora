@@ -19,19 +19,16 @@
 #include <msdialog.fdf>
 #include <msparse.fdf>
 #include "app.h"
-#include "photoReader.h"
 #include "fenceReader.h"
 #include "arrowBuilder.h"
 #include "ui.h"
 #include "ui-cmd.h"
+#include "core\podporaSkaner.h"
 
-int command_loadFence();
+int command_loadPomierzone();
 void command_loadConfig();
-void command_loadArrowsFromFile();
-void command_photoSubdir(char* subdir);
-void command_photoExt(char* ext);
-void command_refStartLevel(int startLevel);
-void command_refEndLevel(int endLevel);
+void command_configPomierzoneLevel(int pomierzoneLevel);
+void command_configPierwotneLevel(int pierwotneLevel);
 void command_arrowLevel(int level);
 void command_arrowFont(int font);
 void command_arrowColor(int color);

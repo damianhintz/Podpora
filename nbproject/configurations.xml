@@ -14,7 +14,6 @@
         <itemPath>core/mdlFence.h</itemPath>
         <itemPath>core/mdlGeom.h</itemPath>
         <itemPath>core/mdlLine.h</itemPath>
-        <itemPath>core/mdlScan.h</itemPath>
         <itemPath>core/mdlSelect.h</itemPath>
         <itemPath>core/mdlText.h</itemPath>
         <itemPath>core/photoArrow.h</itemPath>
@@ -27,7 +26,7 @@
       <itemPath>def-v8.h</itemPath>
       <itemPath>fenceReader.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>photoReader.h</itemPath>
+      <itemPath>core/podporaSkaner.h</itemPath>
       <itemPath>ui-cmd.h</itemPath>
       <itemPath>ui.h</itemPath>
       <itemPath>vectorMath.h</itemPath>
@@ -53,7 +52,6 @@
         <itemPath>core/mdlFence.mc</itemPath>
         <itemPath>core/mdlGeom.mc</itemPath>
         <itemPath>core/mdlLine.mc</itemPath>
-        <itemPath>core/mdlScan.mc</itemPath>
         <itemPath>core/mdlSelect.mc</itemPath>
         <itemPath>core/mdlText.mc</itemPath>
         <itemPath>core/photoArrow.mc</itemPath>
@@ -63,7 +61,7 @@
       <itemPath>cmd.mc</itemPath>
       <itemPath>fenceReader.mc</itemPath>
       <itemPath>main.mc</itemPath>
-      <itemPath>photoReader.mc</itemPath>
+      <itemPath>core/podporaSkaner.mc</itemPath>
       <itemPath>ui-cmd.mc</itemPath>
       <itemPath>ui.mc</itemPath>
       <itemPath>vectorMath.mc</itemPath>
@@ -149,10 +147,6 @@
       </item>
       <item path="core/mdlLine.mc" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="core/mdlScan.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="core/mdlScan.mc" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="core/mdlSelect.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlSelect.mc" ex="false" tool="0" flavor2="0">
@@ -167,6 +161,10 @@
       </item>
       <item path="core/photoPoint.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="core/podporaSkaner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core/podporaSkaner.mc" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="fenceReader.h" ex="false" tool="3" flavor2="0">
@@ -176,10 +174,6 @@
       <item path="main.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.mc" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="photoReader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="photoReader.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui-cmd.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -264,10 +258,6 @@
       </item>
       <item path="core/mdlLine.mc" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="core/mdlScan.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="core/mdlScan.mc" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="core/mdlSelect.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlSelect.mc" ex="false" tool="0" flavor2="0">
@@ -282,6 +272,10 @@
       </item>
       <item path="core/photoPoint.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="core/podporaSkaner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core/podporaSkaner.mc" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="fenceReader.h" ex="false" tool="3" flavor2="0">
@@ -291,10 +285,6 @@
       <item path="main.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.mc" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="photoReader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="photoReader.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui-cmd.h" ex="false" tool="3" flavor2="0">
       </item>

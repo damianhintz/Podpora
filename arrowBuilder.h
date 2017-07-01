@@ -25,7 +25,7 @@ typedef struct _arrowBuilder {
 void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP);
 void arrowBuilder_free(LpArrowBuilder thisP);
 void arrowBuilder_summary(LpArrowBuilder thisP);
-void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP);
+void arrowBuilder_createArrows(LpArrowBuilder thisP, LpFenceReader readerP);
 void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* startPoint, DPoint3d* endPoint);
 void arrowWriter_saveAll(LpArrowBuilder thisP);
 int arrowBuilder_createArrowFromVector(MSElement* lineP, PhotoArrow* arrowP);
