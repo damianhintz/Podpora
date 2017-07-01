@@ -21,7 +21,6 @@
 typedef struct _fenceReader {
     int maxCount;
     int masterCount;
-    int refCount;
     PhotoPoint* startPoints;
     int startPointsCount;
     PhotoPoint* endPoints;
@@ -35,7 +34,6 @@ int fenceReader_count(LpFenceReader thisP);
 int fence_countRefElement(LpFenceReader thisP);
 int fenceReader_load(LpFenceReader thisP);
 int fence_selectCurrentRefElement(LpFenceReader thisP);
-int fence_parseRef(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 
 PhotoPoint* fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
