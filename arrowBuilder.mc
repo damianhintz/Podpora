@@ -3,8 +3,8 @@
 void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP) {
     if (thisP == NULL) return;
     if (readerP == NULL) return;
-    thisP->maxArrows = readerP->refCount;
-    thisP->arrows = (PhotoArrow*) calloc(readerP->refCount, sizeof (PhotoArrow));
+    thisP->maxArrows = readerP->masterCount;
+    thisP->arrows = (PhotoArrow*) calloc(readerP->masterCount, sizeof (PhotoArrow));
     thisP->arrowsCount = 0;
     thisP->allCount = 0;
     thisP->missingArrows = 0;

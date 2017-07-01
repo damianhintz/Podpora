@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=None-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -83,75 +83,67 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/podpora.exe: ${OBJECTFILES}
 ${OBJECTDIR}/app.o: app.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app.o app.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app.o app.mc
 
 ${OBJECTDIR}/app/appView.o: app/appView.mc
 	${MKDIR} -p ${OBJECTDIR}/app
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/appView.o app/appView.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/appView.o app/appView.mc
 
 ${OBJECTDIR}/app/mdlLogger.o: app/mdlLogger.mc
 	${MKDIR} -p ${OBJECTDIR}/app
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/mdlLogger.o app/mdlLogger.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/mdlLogger.o app/mdlLogger.mc
 
 ${OBJECTDIR}/app/mdlUtil.o: app/mdlUtil.mc
 	${MKDIR} -p ${OBJECTDIR}/app
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/mdlUtil.o app/mdlUtil.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/mdlUtil.o app/mdlUtil.mc
 
 ${OBJECTDIR}/arrowBuilder.o: arrowBuilder.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arrowBuilder.o arrowBuilder.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arrowBuilder.o arrowBuilder.mc
 
 ${OBJECTDIR}/cmd.o: cmd.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cmd.o cmd.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cmd.o cmd.mc
 
 ${OBJECTDIR}/core/mdlElement.o: core/mdlElement.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlElement.o core/mdlElement.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlElement.o core/mdlElement.mc
 
 ${OBJECTDIR}/core/mdlFence.o: core/mdlFence.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlFence.o core/mdlFence.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlFence.o core/mdlFence.mc
 
 ${OBJECTDIR}/core/mdlGeom.o: core/mdlGeom.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlGeom.o core/mdlGeom.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlGeom.o core/mdlGeom.mc
 
 ${OBJECTDIR}/core/mdlLine.o: core/mdlLine.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlLine.o core/mdlLine.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlLine.o core/mdlLine.mc
 
-<<<<<<< HEAD
-=======
-${OBJECTDIR}/core/mdlScan.o: core/mdlScan.mc
-	${MKDIR} -p ${OBJECTDIR}/core
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlScan.o core/mdlScan.mc
-
->>>>>>> 094b763d024980ca91876afcfdf2eae38953b1c7
 ${OBJECTDIR}/core/mdlSelect.o: core/mdlSelect.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlSelect.o core/mdlSelect.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlSelect.o core/mdlSelect.mc
 
 ${OBJECTDIR}/core/mdlText.o: core/mdlText.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlText.o core/mdlText.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlText.o core/mdlText.mc
 
 ${OBJECTDIR}/core/photoArrow.o: core/photoArrow.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/photoArrow.o core/photoArrow.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/photoArrow.o core/photoArrow.mc
 
 ${OBJECTDIR}/core/podporaSkaner.o: core/podporaSkaner.mc
 	${MKDIR} -p ${OBJECTDIR}/core
@@ -161,35 +153,27 @@ ${OBJECTDIR}/core/podporaSkaner.o: core/podporaSkaner.mc
 ${OBJECTDIR}/fenceReader.o: fenceReader.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fenceReader.o fenceReader.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fenceReader.o fenceReader.mc
 
 ${OBJECTDIR}/main.o: main.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.mc
 
-<<<<<<< HEAD
-=======
-${OBJECTDIR}/photoReader.o: photoReader.mc
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/photoReader.o photoReader.mc
-
->>>>>>> 094b763d024980ca91876afcfdf2eae38953b1c7
 ${OBJECTDIR}/ui-cmd.o: ui-cmd.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ui-cmd.o ui-cmd.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ui-cmd.o ui-cmd.mc
 
 ${OBJECTDIR}/ui.o: ui.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ui.o ui.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ui.o ui.mc
 
 ${OBJECTDIR}/vectorMath.o: vectorMath.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I/cygdrive/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/vectorMath.o vectorMath.mc
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/vectorMath.o vectorMath.mc
 
 # Subprojects
 .build-subprojects:

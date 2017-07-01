@@ -34,7 +34,7 @@ int fenceReader_count(LpFenceReader thisP);
 int fence_countRefElement(LpFenceReader thisP);
 int fenceReader_load(LpFenceReader thisP);
 int fence_selectCurrentRefElement(LpFenceReader thisP);
-void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
+int fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 
 PhotoPoint* fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
 int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);

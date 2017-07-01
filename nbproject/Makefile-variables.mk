@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Cygwin-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
+CND_PLATFORM_Debug=None-Windows
+CND_ARTIFACT_DIR_Debug=dist/Debug/None-Windows
 CND_ARTIFACT_NAME_Debug=podpora
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/podpora
-CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/None-Windows/podpora
+CND_PACKAGE_DIR_Debug=dist/Debug/None-Windows/package
 CND_PACKAGE_NAME_Debug=podpora.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/podpora.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/None-Windows/package/podpora.tar
 # Release configuration
-CND_PLATFORM_Release=Cygwin-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
+CND_PLATFORM_Release=None-Windows
+CND_ARTIFACT_DIR_Release=dist/Release/None-Windows
 CND_ARTIFACT_NAME_Release=podpora
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/podpora
-CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Release=dist/Release/None-Windows/podpora
+CND_PACKAGE_DIR_Release=dist/Release/None-Windows/package
 CND_PACKAGE_NAME_Release=podpora.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/podpora.tar
+CND_PACKAGE_PATH_Release=dist/Release/None-Windows/package/podpora.tar
 #
 # include compiler specific variables
 #

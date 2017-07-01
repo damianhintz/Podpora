@@ -105,44 +105,19 @@ int fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber file
     int count;
     
     element_readAttributes(edP, fileNum, &type, &level, NULL, NULL, NULL);
-<<<<<<< HEAD
-    if (!element_isText(type)) return FALSE; //skip elements other than texts
-    if (!mdlText_readText(edP, text, &point)) return FALSE;
-    if (strlen(text) > MAX_PHOTO_NAME) return FALSE; //photo name is too big
-    if (level == _pierwotneLevel) { //first point of the photo
-=======
-    
-    if (level != _refStartLevel) { //first point of the photo
->>>>>>> 094b763d024980ca91876afcfdf2eae38953b1c7
+    if (level == _pierwotneLevel) {
         PhotoPoint* photoP = NULL;
         int i = thisP->startPointsCount;
         if (i >= thisP->maxCount) return FALSE;
         photoP = &thisP->startPoints[i];
         strncpy(photoP->name, text, sizeof (photoP->name));
-        photoP->point = point;
+        //photoP->point = point;
         thisP->startPointsCount++;
     }
-<<<<<<< HEAD
-    if (level == _pomierzoneLevel) { //second point of the photo
-        PhotoPoint* photoP = NULL;
-        int i = thisP->endPointsCount;
-        if (i >= thisP->maxCount) return FALSE;
-        photoP = &thisP->endPoints[i];
-        strncpy(photoP->name, text, sizeof (photoP->name));
-        photoP->point = point;
-        thisP->endPointsCount++;
-    }
-    thisP->refCount++;
-    return TRUE;
-}
 
-void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum) {
-=======
-    
     if (!element_isShape(type)) return FALSE;
     if (!shape_getPoints(edP, fileNum, &count)) return FALSE;
     
->>>>>>> 094b763d024980ca91876afcfdf2eae38953b1c7
     thisP->masterCount++;
     
     return TRUE;
