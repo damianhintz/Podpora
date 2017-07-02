@@ -29,41 +29,6 @@ int element_readAttributes(MSElementDescr *edP,
     return status;
 }
 
-int element_isShape(int elemType) {
-    switch (elemType) {
-        case SHAPE_ELM:
-            return TRUE;
-        default:
-            return FALSE;
-    }
-    return FALSE;
-}
-
-
-DPoint3d* shape_getPoints(MSElementDescr* edP, ModelNumber modelRefP, int* nPunktyP) {
-    DPoint3d aPunkty[MAX_VERTICES];
-    DPoint3d* aPunktyP = NULL;
-    int nPunkty = 0;
-    int i = 0;
-    
-    if (SUCCESS != mdlLinear_extract(aPunkty, &nPunkty, &edP->el, modelRefP)) {
-        return NULL;
-    }
-    
-    *nPunktyP = nPunkty;
-    aPunktyP = (DPoint3d*) calloc(nPunkty, sizeof (DPoint3d));
-    
-    if (aPunktyP == NULL) {
-        return NULL;
-    }
-    
-    for (i = 0; i < nPunkty; i++) {
-        aPunktyP[i] = aPunkty[i];
-    }
-
-    return aPunktyP;
-}
-
 int obiektDgn_jestProsty(int elemType) {
     switch (elemType) {
         case LINE_ELM:

@@ -38,8 +38,6 @@
 #include "..\def-v8.h"
 
 int element_readAttributes(MSElementDescr *edP, ModelNumber modelRef, int* typeP, UInt32* levelP, UInt32* colorP, UInt32* weightP, Int32* styleP);
-int element_isShape(int elemType);
-DPoint3d* shape_getPoints(MSElementDescr* edP, ModelNumber modelRefP, int* nPunktyP);
 
 int obiektDgn_jestObszarem(int elemType);
 int obiektDgn_jestProsty(int elemType);

@@ -3,19 +3,22 @@
 #include "mdlText.h"
 #include "..\app\mdlUtil.h"
 
+void punktPodpory_inicjuj(PunktPodpory* thisP, DPoint3d* pomierzony, char* nazwa) {
+    strncpy(thisP->nazwa, nazwa, MAX_NAME_LENGTH);
+    thisP->numerPodpory = -1;
+    thisP->pomierzony = *pomierzony;
+}
+
 int podporaSkaner_inicjuj(PodporaSkaner* thisP) {
     if (thisP == NULL)
         return FALSE;
 
     thisP->pomierzoneCount = 0;
-    thisP->pomierzonePunkty = NULL;
+    //thisP->pomierzonePunkty = NULL;
     
     thisP->pierwotneCount = 0;
-    thisP->pierwotnePunkty = NULL;
+    //thisP->pierwotnePunkty = NULL;
     
-    thisP->nInne = 0;
-    thisP->nObszary = 0;
-
     return TRUE;
 }
 
@@ -51,12 +54,13 @@ void podporaSkaner_wczytajPomierzone(PodporaSkaner* thisP) {
         char nazwaPunktu[256];
         DPoint3d pomierzonyPunkt;
         int scanned;
+        PunktPodpory pomierzony;
         
         rowIndex++;
 
         if (strncmp(row, "#", 1) == 0) continue;
         
-        scanned = sscanf(row, "%s %f %f %f", nazwaPunktu, &pomierzonyPunkt.x, &pomierzonyPunkt.y, &pomierzonyPunkt.z);
+        scanned = sscanf(row, "%s %f %f %f", nazwaPunktu, &pomierzonyPunkt.y, &pomierzonyPunkt.x, &pomierzonyPunkt.z);
         
         if (scanned != 4) {
             sprintf(msg, "podpora: invalid row %d: %s", rowIndex, row);
@@ -64,6 +68,9 @@ void podporaSkaner_wczytajPomierzone(PodporaSkaner* thisP) {
             continue;
         }
         
+        punktPodpory_inicjuj(&pomierzony, &pomierzonyPunkt, nazwaPunktu);
+        thisP->pomierzone[thisP->pomierzoneCount] = pomierzony;
+        thisP->pomierzonePunkty[thisP->pomierzoneCount] = pomierzonyPunkt;
         thisP->pomierzoneCount++;
     }
     
@@ -141,8 +148,10 @@ int skanujElement(MSElementDescr* edP, void* vargP) {
     ModelNumber numerPliku = MASTERFILE;
     int typ;
     UInt32 level;
-    DPoint3d* punkty;
-    int count;
+    DPoint3d* pierwotne;
+    int count, i, j;
+    int numerPodpory;
+    char msg[256];
     
     if (!element_readAttributes(edP, numerPliku, &typ, &level, NULL, NULL, NULL)) {
         return SUCCESS;
@@ -156,9 +165,41 @@ int skanujElement(MSElementDescr* edP, void* vargP) {
         return SUCCESS;
     }
     
-    //punkty = wczytajPunkty(edP, numerPliku, &count);
+    pierwotne = wczytajPunkty(edP, numerPliku, &count);
     
-    argP->pierwotneCount++;
+    numerPodpory = argP->pierwotneCount++;
+    
+    //szukaj pomierzonego punktu
+    for(i = 0; i < count; i++) {
+        DPoint3d pierwotny = pierwotne[i];
+
+        pierwotny.x = mdlCnv_uorsToMasterUnits(pierwotny.x);
+        pierwotny.y = mdlCnv_uorsToMasterUnits(pierwotny.y);
+
+        //szukaj punktu pomierzonego
+        for(j = 0; j < argP->pomierzoneCount; j++) {
+            PunktPodpory pomierzonyPunkt = argP->pomierzone[j];
+            DPoint3d pomierzony = pomierzonyPunkt.pomierzony;
+            double dystans;
+            
+            //mdlCnv_uorsToMasterUnits
+            
+            if (pomierzonyPunkt.numerPodpory >= 0) {
+                continue;
+            }
+            
+            //oblicz dystans
+            dystans = mdlVec_distance(&pierwotny, &pomierzony);
+            dystans = mdlCnv_uorsToMasterUnits(dystans);
+            
+            if ((i == 0 && j == 0) || dystans < 10) {
+
+                sprintf(msg, "dystans: %f %f %f", dystans, pierwotny.x, pomierzony.x);
+                mdlLogger_info(msg);
+
+            }
+        }
+    }
     
     return SUCCESS;
 }

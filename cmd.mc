@@ -7,15 +7,6 @@ int command_loadPomierzone() {
     podporaSkaner_wczytajPomierzone(&skanerPliku);
     podporaSkaner_wczytajPierwotne(&skanerPliku);
     podporaSkaner_podsumowanie(&skanerPliku);
-
-    //photoReader_init(&photos);
-    //photoReader_summary(&photos);
-
-    //arrowBuilder_init(&builder, &reader);
-    //arrowBuilder_createArrows(&builder, &photos, &reader);
-    //arrowWriter_saveAll(&builder);
-    //arrowBuilder_summary(&builder);
-
     podporaSkaner_zwolnij(&skanerPliku);
 
     return TRUE;
@@ -24,19 +15,19 @@ int command_loadPomierzone() {
 void command_loadConfig() {
     char row[256];
     FILE* file;
-    
+
     mdlLogger_info(_configPath);
     file = mdlTextFile_open(_configPath, TEXTFILE_READ);
-    
+
     if (file == NULL) return;
-    
+
     while (NULL != mdlTextFile_getString(row, 256, file, TEXTFILE_DEFAULT)) {
         if (strncmp(row, "#", 1) == 0) continue; //skip keyin
-        
+
         //void mdlInput_sendKeyin(char* stringP, int literal, int position, char* taskIdP);
         mdlInput_sendKeyin(row, 0, 0, NULL);
     }
-    
+
     mdlTextFile_close(file);
 }
 

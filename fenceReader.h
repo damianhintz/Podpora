@@ -30,11 +30,6 @@ typedef struct _fenceReader {
 void fenceReader_init(LpFenceReader thisP);
 void fenceReader_free(LpFenceReader thisP);
 void fenceReader_summary(LpFenceReader thisP);
-int fenceReader_count(LpFenceReader thisP);
-int fence_countRefElement(LpFenceReader thisP);
-int fenceReader_load(LpFenceReader thisP);
-int fence_selectCurrentRefElement(LpFenceReader thisP);
-int fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 
 PhotoPoint* fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
 int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
