@@ -10,14 +10,16 @@ void punktPodpory_inicjuj(PunktPodpory* thisP, DPoint3d* pomierzony, char* nazwa
 }
 
 int podporaSkaner_inicjuj(PodporaSkaner* thisP) {
+    fileLogger_writeLine("#nr x y z indexPomierzonego", "podpory");
+    
     if (thisP == NULL)
         return FALSE;
 
     thisP->pomierzoneCount = 0;
-    //thisP->pomierzonePunkty = NULL;
+    thisP->samotnePomierzone = 0;
     
     thisP->pierwotneCount = 0;
-    //thisP->pierwotnePunkty = NULL;
+    thisP->samotnePierwotne = 0;
     
     return TRUE;
 }
@@ -70,7 +72,7 @@ void podporaSkaner_wczytajPomierzone(PodporaSkaner* thisP) {
         
         punktPodpory_inicjuj(&pomierzony, &pomierzonyPunkt, nazwaPunktu);
         thisP->pomierzone[thisP->pomierzoneCount] = pomierzony;
-        thisP->pomierzonePunkty[thisP->pomierzoneCount] = pomierzonyPunkt;
+        //thisP->pomierzonePunkty[thisP->pomierzoneCount] = pomierzonyPunkt;
         thisP->pomierzoneCount++;
     }
     
@@ -101,6 +103,10 @@ int podporaSkaner_podsumowanie(PodporaSkaner* thisP) {
     
     sprintf(msg, "podpora podsumowanie: %d podpory, (level %d)",
             thisP->pierwotneCount, _pierwotneLevel);
+    mdlLogger_info(msg);
+    
+    sprintf(msg, "podpora podsumowanie: %d samotne pierwotne",
+            thisP->samotnePierwotne);
     mdlLogger_info(msg);
 
     return TRUE;
@@ -172,33 +178,59 @@ int skanujElement(MSElementDescr* edP, void* vargP) {
     //szukaj pomierzonego punktu
     for(i = 0; i < count; i++) {
         DPoint3d pierwotny = pierwotne[i];
-
+        int pomierzonyIndex = -1;
+        
         pierwotny.x = mdlCnv_uorsToMasterUnits(pierwotny.x);
         pierwotny.y = mdlCnv_uorsToMasterUnits(pierwotny.y);
-
+        pierwotny.z = mdlCnv_uorsToMasterUnits(pierwotny.z);
+        
         //szukaj punktu pomierzonego
         for(j = 0; j < argP->pomierzoneCount; j++) {
             PunktPodpory pomierzonyPunkt = argP->pomierzone[j];
             DPoint3d pomierzony = pomierzonyPunkt.pomierzony;
             double dystans;
-            
-            //mdlCnv_uorsToMasterUnits
+            double length;
             
             if (pomierzonyPunkt.numerPodpory >= 0) {
                 continue;
             }
             
-            //oblicz dystans
+            //todo: oblicz dystans bez trzeciego wymiaru z
             dystans = mdlVec_distance(&pierwotny, &pomierzony);
             dystans = mdlCnv_uorsToMasterUnits(dystans);
-            
-            if ((i == 0 && j == 0) || dystans < 10) {
-
-                sprintf(msg, "dystans: %f %f %f", dystans, pierwotny.x, pomierzony.x);
-                mdlLogger_info(msg);
-
+            length = sqrt((pomierzony.x-pierwotny.x)*(pomierzony.x-pierwotny.x) + 
+                    (pomierzony.y-pierwotny.y)*(pomierzony.y-pierwotny.y));
+                    
+            if (length < 0.5) {
+                pomierzonyPunkt.numerPodpory = numerPodpory;
+                pomierzonyPunkt.pierwotny = pierwotny;
+                pomierzonyIndex = j;
+                break;
             }
         }
+        
+        if (pomierzonyIndex < 0) {
+            //todo: samotny pierwotny
+            argP->samotnePierwotne++;
+            sprintf(msg, "%d %f %f %f %d #", numerPodpory, pierwotny.x, pierwotny.y, pierwotny.z, pomierzonyIndex);
+        } else {
+            PunktPodpory pomierzonyPunkt = argP->pomierzone[pomierzonyIndex];
+            DPoint3d pomierzony = pomierzonyPunkt.pomierzony;
+            double dystans;
+            double length;
+            
+            //todo: oblicz dystans bez trzeciego wymiaru z
+            dystans = mdlVec_distance(&pierwotny, &pomierzony);
+            dystans = mdlCnv_uorsToMasterUnits(dystans);
+            length = sqrt((pomierzony.x-pierwotny.x)*(pomierzony.x-pierwotny.x) + 
+                    (pomierzony.y-pierwotny.y)*(pomierzony.y-pierwotny.y));
+            sprintf(msg, "%d %f %f %f %d %s %f %f %f %f", numerPodpory, pierwotny.x, pierwotny.y, pierwotny.z, pomierzonyIndex, 
+                    pomierzonyPunkt.nazwa, pomierzony.x, pomierzony.y, dystans, length);
+            
+            //wstaw strzałkę
+        }
+        
+        fileLogger_appendLine(msg, "podpory");
     }
     
     return SUCCESS;

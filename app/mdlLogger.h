@@ -35,6 +35,11 @@ void mdlLogger_appendExt(char* line, char* ext);
 void mdlLogger_print(char* line);
 void mdlLogger_printExt(char* line, char* ext);
 
+void fileLogger_writeLine(char* line, char* ext);
+void fileLogger_write(char* line, char* ext);
+void fileLogger_appendLine(char* line, char* ext);
+void fileLogger_append(char* line, char* ext);
+
 int mdlLogger_selectFile(char* workFileP, char* titleP, char* extP);
 int mdlLogger_alert(char* msg);
 

@@ -55,11 +55,13 @@ typedef struct _podpora {
 
 typedef struct podporaSkaner {
     int pomierzoneCount;
-    DPoint3d pomierzonePunkty[512];
+    int samotnePomierzone;
+    //DPoint3d pomierzonePunkty[512];
     PunktPodpory pomierzone[512];
     
     int pierwotneCount;
-    DPoint3d pierwotnePunkty[512];
+    int samotnePierwotne;
+    //DPoint3d pierwotnePunkty[512];
     //Podpora podpory[512];
 } PodporaSkaner, *LpPodporaSkaner;
 

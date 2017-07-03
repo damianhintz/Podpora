@@ -38,11 +38,7 @@ void mdlLogger_appendExt(char* line, char* ext) {
     }
 }
 
-void mdlLogger_print(char* line) {
-    mdlLogger_printExt(line, "log");
-}
-
-void mdlLogger_printExt(char* line, char* ext) {
+void fileLogger_writeLine(char* line, char* ext) {
     FILE* file;
     char logname[MAXFILELENGTH];
     char dev[MAXDEVICELENGTH];
@@ -54,6 +50,40 @@ void mdlLogger_printExt(char* line, char* ext) {
     mdlFile_buildName(logname, dev, dir, name, ext);
 
     if ((file = mdlTextFile_open(logname, TEXTFILE_WRITE)) != NULL) {
+        mdlTextFile_putString(line, file, TEXTFILE_DEFAULT); //TEXTFILE_NO_NEWLINE
+        mdlTextFile_close(file);
+    }
+}
+
+void fileLogger_append(char* line, char* ext) {
+    FILE* file;
+    char logname[MAXFILELENGTH];
+    char dev[MAXDEVICELENGTH];
+    char dir[MAXDIRLENGTH];
+    char name[MAXNAMELENGTH];
+    char ext2[MAXEXTENSIONLENGTH];
+
+    mdlFile_parseName(tcb->dgnfilenm, dev, dir, name, ext2);
+    mdlFile_buildName(logname, dev, dir, name, ext);
+
+    if ((file = mdlTextFile_open(logname, TEXTFILE_APPEND)) != NULL) {
+        mdlTextFile_putString(line, file, TEXTFILE_NO_NEWLINE); //TEXTFILE_NO_NEWLINE
+        mdlTextFile_close(file);
+    }
+}
+
+void fileLogger_appendLine(char* line, char* ext) {
+    FILE* file;
+    char logname[MAXFILELENGTH];
+    char dev[MAXDEVICELENGTH];
+    char dir[MAXDIRLENGTH];
+    char name[MAXNAMELENGTH];
+    char ext2[MAXEXTENSIONLENGTH];
+
+    mdlFile_parseName(tcb->dgnfilenm, dev, dir, name, ext2);
+    mdlFile_buildName(logname, dev, dir, name, ext);
+
+    if ((file = mdlTextFile_open(logname, TEXTFILE_APPEND)) != NULL) {
         mdlTextFile_putString(line, file, TEXTFILE_DEFAULT); //TEXTFILE_NO_NEWLINE
         mdlTextFile_close(file);
     }
